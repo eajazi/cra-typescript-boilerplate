@@ -1,0 +1,76 @@
+{
+  "env": {
+    "browser": true,
+    "es2020": true
+  },
+  "extends": [
+    "plugin:react/recommended",
+    "airbnb",
+    "plugin:import/errors",
+    "plugin:import/warnings",
+    "plugin:import/typescript",
+    "plugin:prettier/recommended"
+  ],
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true
+    },
+    "ecmaVersion": 2020,
+    "sourceType": "module"
+  },
+  "plugins": ["react", "react-hooks", "@typescript-eslint"],
+  "overrides": [
+    {
+      "files": ["*.ts", "*.tsx"],
+      "rules": {
+        "no-undef": "off"
+      }
+    }
+  ],
+  "rules": {
+    // note you must disable the base rule as it can report incorrect errors
+    "no-use-before-define": "off",
+    "@typescript-eslint/no-use-before-define": ["warn"],
+    // no shadow rule
+    "no-shadow": "off",
+    "@typescript-eslint/no-shadow": "error",
+
+    "no-console": "warn",
+    "camelcase": "off",
+    "react/jsx-no-bind": [1, { "allowArrowFunctions": false }],
+    "react/jsx-props-no-spreading": "off",
+    "react/prop-types": 0,
+    "react/jsx-wrap-multilines": "off",
+    "react/button-has-type": "warn",
+    "import/no-extraneous-dependencies": "off",
+    "react/jsx-filename-extension": [2, { "extensions": [".js", ".jsx", ".ts", ".tsx"] }],
+    "import/prefer-default-export": "off",
+    "react/jsx-closing-bracket-location": "off",
+    "no-unused-vars": "off",
+    "import/no-cycle": "off",
+    "@typescript-eslint/no-unused-vars": "warn",
+    // React Hooks Plugin
+    // The following rules are made available via `eslint-plugin-react-hooks`.
+    "react-hooks/rules-of-hooks": "warn",
+    "react-hooks/exhaustive-deps": "warn",
+    "import/extensions": [
+      "error",
+      "ignorePackages",
+      {
+        "js": "never",
+        "jsx": "never",
+        "ts": "never",
+        "tsx": "never"
+      }
+    ]
+  },
+  "settings": {
+    "import/resolver": {
+      "node": {
+        "extensions": [".js", ".jsx", ".ts", ".tsx", ".d.ts"],
+        "moduleDirectory": ["node_modules", "src/"]
+      }
+    }
+  }
+}
